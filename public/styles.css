@@ -1,0 +1,242 @@
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+   scroll-behavior: auto;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+html { 
+    background: url(./Assets/pokeball.png) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+header {
+    height: 200px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 0px;
+}
+
+#pokemon-logo {
+    height: 125px;
+}
+
+.pokemon-name {
+    font-weight: 800;
+    font-size: 28px;
+    text-align: center;
+}
+
+h2 {
+    font-size: 36px;
+    text-align: center;
+    padding-top: 20px;
+}
+
+h3 {
+    font-size: 28px;
+}
+
+h4 {
+    font-size: 24px;
+}
+
+.title {
+    color: white;
+    padding-top: 0px;
+}
+
+p {
+    font-size: 18px;
+}
+
+.total-stats {
+    font-weight: 800;
+    font-size: 24px;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    width: 70vw;
+    /* justify-content: space-around; */
+    padding: 5vh 0px;
+    margin-bottom: 40px;
+    background-color: rgba(255,255,255, 0.9);
+    box-shadow: 5px 5px 5px gray;
+    border: 1px solid gray;
+    border-radius: 10px;
+}
+content {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+}
+
+#pokemon1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(222, 26, 26, 0.8);
+    /* box-shadow: 5px 5px 5px 5px gainsboro; */
+    height: 550px;
+    width: 300px;
+    border-radius: 10px;
+}
+
+#pokemon2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(48, 102, 190, 0.8);
+    /* box-shadow: 5px 5px 5px 5px gainsboro; */
+    height: 550px;
+    width: 300px;
+    border-radius: 10px;
+}
+
+#pokemon-content1 {
+    display: flex;
+    flex-direction: column;
+}
+
+#pokemon-content2 {
+    display: flex;
+    flex-direction: column;
+}
+
+.pokemon-image {
+    height: 200px;
+    width: 200px;
+}
+
+form {
+    justify-content: center;
+    padding-top: 20px;
+}
+
+input {
+    border-radius: 3px;
+    border: none;
+}
+
+button {
+    border-radius: 3px;
+    border: none;
+}
+
+#button1:hover {
+    background-color: #3066BE;
+    transition: all 0.3s ease;
+}
+#button2:hover {
+    background-color: #DE1A1A;
+    transition: all 0.3s ease;
+}
+
+#bag {
+    /* height: 500px; */
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    justify-content:space-around;
+}
+
+#bag img {
+    height: 150px;
+}
+
+.bagCard {
+    display: flex;
+    flex-direction: column;
+    width: 150px;
+    text-align: center;
+}
+
+#add-1 {
+    margin-top: 15px;
+}
+
+#add-2 {
+    margin-top: 15px;
+}
