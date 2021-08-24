@@ -1,9 +1,9 @@
-let bag = []
+let team = []
 let id = 0
 
 module.exports = {
     addPokemon: (req, res) => {
-        if(bag.length < 6) {
+        if(team.length < 6) {
            let { name, image, total } = req.body
             let newPokemon = {
                 id,
@@ -12,19 +12,18 @@ module.exports = {
                 total
                 }
             id++
-            bag.push(newPokemon)
-            console.log(bag)
-            res.status(200).send(bag) 
+            team.push(newPokemon)
+            res.status(200).send(team) 
         }
     },
     deletePokemon: (req, res) => {
         let { id } = req.params
-        let index = bag.findIndex(pokemon => pokemon.id === +id)
-        bag.splice(index, 1)
-        res.status(200).send(bag)
+        let index = team.findIndex(pokemon => pokemon.id === +id)
+        team.splice(index, 1)
+        res.status(200).send(team)
     },
     deleteAll: (req, res) => {
-        bag = []
-        res.status(200).send(bag)
+        team = []
+        res.status(200).send(team)
     }
 }

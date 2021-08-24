@@ -1,7 +1,7 @@
 const btn1 = document.getElementById('button1')
 const btn2 = document.getElementById('button2')
 
-const bag = document.getElementById('bag')
+const team = document.getElementById('team')
 
 let firstBox = document.getElementById('pokemon-content1')
 let secondBox = document.getElementById('pokemon-content2')
@@ -67,24 +67,24 @@ function buildPokeCard2(res) {
     <p class="sp-attack">Special Attack: ${res.data.stats[3]['base_stat']}</p>
     <p class="sp-defense">Special Defense: ${res.data.stats[4]['base_stat']}</p>
     <p class="speed">Speed: ${res.data.stats[5]['base_stat']}</p>
-    <button id="add-2">Add to Bag</button>`
+    <button id="add-2">Add to Team</button>`
 
     const addBtn2 = document.getElementById('add-2')
     addBtn2.addEventListener('click', addPokemon2)
 }
 
 const addPokemon1 = () => {
-    axios.post(`/bag`, firstBodyObj)
+    axios.post(`/team`, firstBodyObj)
     .then((res) => {
-        addToBag(res)
+        addToTeam(res)
     })
     .catch((err) => console.log(err))
 }
 const addPokemon2 = () => {
     console.log(secondBodyObj)
-    axios.post(`/bag`, secondBodyObj)
+    axios.post(`/team`, secondBodyObj)
     .then((res) => {
-        addToBag(res)
+        addToTeam(res)
     })
     .catch((err) => console.log(err))
 }
@@ -106,32 +106,32 @@ const getPokemon2 = (poke) => {
 }
 
 const deletePokemon = id => {
-    axios.delete(`/bag/${id}`)
+    axios.delete(`/team/${id}`)
     .then((res) => {
-        addToBag(res)
+        addToTeam(res)
     })
     .catch((err) => console.log(err))
 }
 
 const deleteAll = () => {
-    axios.delete(`/bag`)
-    .then((res) => addToBag(res))
+    axios.delete(`/team`)
+    .then((res) => addToTeam(res))
     .catch((err) => console.log(err))
 }
 
-function addToBag(res) {
-    bag.innerHTML = ''
+function addToTeam(res) {
+    team.innerHTML = ''
     for(let i = 0; i < 6; i++) {
         
         let newCard = document.createElement('div')
-        newCard.classList.add('bagCard')
+        newCard.classList.add('teamCard')
 
         newCard.innerHTML = `<h3>${res.data[i].name}</h3>
         <img src='${res.data[i].image}' alt="" >
         <h4>Total: ${res.data[i].total}</h4>
-        <button class='delete-btn' onclick='deletePokemon(${res.data[i].id})'>Remove from bag</button>`
+        <button class='delete-btn' onclick='deletePokemon(${res.data[i].id})'>Remove from Team</button>`
 
-        bag.appendChild(newCard)  
+        team.appendChild(newCard)  
     }
 }
 

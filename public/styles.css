@@ -215,7 +215,7 @@ button {
     transition: all 0.3s ease;
 }
 
-#bag {
+#team {
     /* height: 500px; */
     width: 100%;
     padding: 20px;
@@ -223,11 +223,11 @@ button {
     justify-content:space-around;
 }
 
-#bag img {
+#team img {
     height: 150px;
 }
 
-.bagCard {
+.teamCard {
     display: flex;
     flex-direction: column;
     width: 150px;
