@@ -7,8 +7,6 @@ let firstBox = document.getElementById('pokemon-content1')
 let secondBox = document.getElementById('pokemon-content2')
 
 const pokeURL = `https://pokeapi.co/api/v2/pokemon`
-// const baseURL = `http://localhost:4050`
-
 
 
 let firstBodyObj = {}
@@ -38,7 +36,7 @@ function buildPokeCard1(res) {
     <p class="sp-attack">Special Attack: ${res.data.stats[3]['base_stat']}</p>
     <p class="sp-defense">Special Defense: ${res.data.stats[4]['base_stat']}</p>
     <p class="speed">Speed: ${res.data.stats[5]['base_stat']}</p>
-    <button id="add-1">Add to Bag</button>`
+    <button id="add-1">Add to Team</button>`
 
     const addBtn1 = document.getElementById('add-1')
     addBtn1.addEventListener('click', addPokemon1)
