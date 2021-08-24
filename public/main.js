@@ -7,7 +7,7 @@ let firstBox = document.getElementById('pokemon-content1')
 let secondBox = document.getElementById('pokemon-content2')
 
 const pokeURL = `https://pokeapi.co/api/v2/pokemon`
-const baseURL = `http://localhost:4050`
+// const baseURL = `http://localhost:4050`
 
 
 
@@ -76,8 +76,7 @@ function buildPokeCard2(res) {
 }
 
 const addPokemon1 = () => {
-    console.log(firstBodyObj)
-    axios.post(`${baseURL}/bag`, firstBodyObj)
+    axios.post(`/bag`, firstBodyObj)
     .then((res) => {
         addToBag(res)
     })
@@ -85,7 +84,7 @@ const addPokemon1 = () => {
 }
 const addPokemon2 = () => {
     console.log(secondBodyObj)
-    axios.post(`${baseURL}/bag`, secondBodyObj)
+    axios.post(`/bag`, secondBodyObj)
     .then((res) => {
         addToBag(res)
     })
@@ -109,7 +108,7 @@ const getPokemon2 = (poke) => {
 }
 
 const deletePokemon = id => {
-    axios.delete(`${baseURL}/bag/${id}`)
+    axios.delete(`/bag/${id}`)
     .then((res) => {
         addToBag(res)
     })
@@ -117,13 +116,12 @@ const deletePokemon = id => {
 }
 
 const deleteAll = () => {
-    axios.delete(`${baseURL}/bag`)
-    .then((res) => console.log('all pokemon are deleted'))
+    axios.delete(`/bag`)
+    .then((res) => addToBag(res))
     .catch((err) => console.log(err))
 }
 
 function addToBag(res) {
-    console.log(res.data)
     bag.innerHTML = ''
     for(let i = 0; i < 6; i++) {
         
