@@ -11,31 +11,36 @@
   <body>
     <header>
       <img src="./Assets/pokemon_logo.png" alt="" id="pokemon-logo" />
-      <h2 class='title'>Team Builder</h2>
+      <h2 class="title">Team Builder</h2>
     </header>
     <main>
-      <content><section id="pokemon1">
-        <form action="submit" id="form1">
-          <input type="text" id="first-pokemon" placeholder="Try Charizard" />
-          <button id="button1">Submit</button>
-        </form>
-        <div id="pokemon-content1">
-        </div>
-      </section>
+      <content
+        ><section id="pokemon1">
+          <form action="submit" id="form1">
+            <input type="text" id="first-pokemon" placeholder="Try Charizard" />
+            <button id="button1">Submit</button>
+          </form>
+          <div id="pokemon-content1"></div>
+        </section>
 
-      <section id="pokemon2">
-        <form action="submit" id="form2">
-          <input type="text" id="second-pokemon" placeholder="Try Lugia"/>
-          <button id="button2">Submit</button>
-        </form>
-        <div id="pokemon-content2"></div>
-      </section></content>
+        <section id="pokemon2">
+          <form action="submit" id="form2">
+            <input type="text" id="second-pokemon" placeholder="Try Lugia" />
+            <button id="button2">Submit</button>
+          </form>
+          <div id="pokemon-content2"></div></section
+      ></content>
       <h2>Currently on your Team</h2>
       <section id="bag">
         <h1>empty...</h1>
-        
       </section>
     </main>
+    <footer>
+      <p>
+        I do not own the rights to Pokemon or any of the subcategories or
+        whatever.
+      </p>
+    </footer>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="main.js"></script>
   </body>

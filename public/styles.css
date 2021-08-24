@@ -203,6 +203,7 @@ input {
 button {
     border-radius: 3px;
     border: none;
+    cursor: pointer;
 }
 
 #button1:hover {
@@ -239,4 +240,17 @@ button {
 
 #add-2 {
     margin-top: 15px;
+}
+
+.delete-btn {
+    background-color: #E3B505;
+}
+
+footer {
+    height: 75px;
+    width: 100%;
+    background-color: #3066BE;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

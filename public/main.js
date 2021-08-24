@@ -6,7 +6,8 @@ const bag = document.getElementById('bag')
 let firstBox = document.getElementById('pokemon-content1')
 let secondBox = document.getElementById('pokemon-content2')
 
-const baseURL = `https://pokeapi.co/api/v2/pokemon`
+const pokeURL = `https://pokeapi.co/api/v2/pokemon`
+const baseURL = `http://localhost:4050`
 
 
 
@@ -76,7 +77,7 @@ function buildPokeCard2(res) {
 
 const addPokemon1 = () => {
     console.log(firstBodyObj)
-    axios.post('http://localhost:5050/bag', firstBodyObj)
+    axios.post(`${baseURL}/bag`, firstBodyObj)
     .then((res) => {
         addToBag(res)
     })
@@ -84,7 +85,7 @@ const addPokemon1 = () => {
 }
 const addPokemon2 = () => {
     console.log(secondBodyObj)
-    axios.post('http://localhost:5050/bag', secondBodyObj)
+    axios.post(`${baseURL}/bag`, secondBodyObj)
     .then((res) => {
         addToBag(res)
     })
@@ -92,7 +93,7 @@ const addPokemon2 = () => {
 }
 
 const getPokemon1 = (poke) => {
-    axios.get(`${baseURL}/${poke.toLowerCase()}`)
+    axios.get(`${pokeURL}/${poke.toLowerCase()}`)
     .then((res) => {
         buildPokeCard1(res)
     })
@@ -100,10 +101,24 @@ const getPokemon1 = (poke) => {
 }
 
 const getPokemon2 = (poke) => {
-    axios.get(`${baseURL}/${poke.toLowerCase()}`)
+    axios.get(`${pokeURL}/${poke.toLowerCase()}`)
     .then((res) => {
         buildPokeCard2(res)
     })
+    .catch((err) => console.log(err))
+}
+
+const deletePokemon = id => {
+    axios.delete(`${baseURL}/bag/${id}`)
+    .then((res) => {
+        addToBag(res)
+    })
+    .catch((err) => console.log(err))
+}
+
+const deleteAll = () => {
+    axios.delete(`${baseURL}/bag`)
+    .then((res) => console.log('all pokemon are deleted'))
     .catch((err) => console.log(err))
 }
 
@@ -118,18 +133,10 @@ function addToBag(res) {
         newCard.innerHTML = `<h3>${res.data[i].name}</h3>
         <img src='${res.data[i].image}' alt="" >
         <h4>Total: ${res.data[i].total}</h4>
-        <button class='delete-btn'>Remove from bag</button>`
+        <button class='delete-btn' onclick='deletePokemon(${res.data[i].id})'>Remove from bag</button>`
 
         bag.appendChild(newCard)  
     }
-
-    `<div class="bagCard"><img src='${res.data[i].image}' alt="">
-    <h3>${res.data[i].name}</h3>
-    <h4>Total: ${res.data[i].total}</h4>
-  </div>`
-
-
-    
 }
 
 function formHandler1(e) {
@@ -148,5 +155,6 @@ function formHandler2(e) {
     getPokemon2(pokemon)
 }
 
+deleteAll()
 btn1.addEventListener('click', formHandler1)
 btn2.addEventListener('click', formHandler2)
